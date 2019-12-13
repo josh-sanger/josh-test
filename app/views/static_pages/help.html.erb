@@ -1,0 +1,11 @@
+<!-- Ol' fashioned -->
+<% test = ', ahhhhh' %>
+<% provide :subtitle, " | Help" %>
+
+<!-- Passing in blocks (do) do not require a comma since you are not passing an argument -->
+<% provide :footer do %>
+    <p>Jimmy Barnes is the best, <%= link_to "yeahhhhhhh#{test}", static_pages_home_path %></p>
+<% end %>
+
+<h1>Help</h1>
+<p>Get help or something.</p>

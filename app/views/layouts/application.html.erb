@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>JoshSangerTest</title>
+    <title>Test app<%= yield(:subtitle) =%></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,5 +11,6 @@
 
   <body>
     <%= yield %>
+    <%= yield(:footer) %>
   </body>
 </html>
