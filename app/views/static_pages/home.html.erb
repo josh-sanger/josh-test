@@ -1,3 +1,13 @@
-<% provide(:subtitle, " | Home") %>
+<% test_array = 'hello there' %>
+<% provide(:subtitle, "Home") %>
 <h1>Sample App Home</h1>
 <p>This is the home page for the <a href="#">Ruby on Rails</a> sample application.</p>
+<p>Is "" an empty string? <strong><%= check_if_string_is_empty('') %></strong></p>
+<p>Is "racecar" a palindrome? <strong><%= check_if_palindrome('racecar') %></strong></p>
+<p>What would "hello there" be as an array? 
+    <ul>
+        <% convert_to_array(test_array).each.with_index do |item, index| %>
+            <li><%= "#{index + 1}: #{item}" %></li>
+        <% end %>
+    </ul>
+</p>
