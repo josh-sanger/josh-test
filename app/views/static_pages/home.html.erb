@@ -1,4 +1,40 @@
-<% test_array = 'hello there' %>
+<% 
+    test_string= 'hello there'
+    hash_array = {
+        'Kenobi' => 'Hello there'
+    } 
+    hash_array['grievous'] = 'General Kenobi!'
+    symbol_array = {
+        :name => 'Joshua Sanger',
+        :occupation => 'Developer'
+    }
+
+    another_symbol_hash_array = {
+        name: 'Joshua Sanger',
+        occupation: 'Developer'
+    }
+    people = {
+        'person1' => {
+            first: 'Rebecca',
+            last: 'Sanger'
+        },
+        'person2' => {
+            first: 'Josh',
+            last: 'Sanger'
+        },
+        'person3' => {
+            first: 'Linus',
+            last: 'Sanger'
+        }
+    }
+    nick_names = {
+        mother: people['person1'],
+        father: people['person2'],
+        child:  people['person3']
+    }
+%>
+
+<% test_array = test_string.split %>
 <% provide(:subtitle, "Home") %>
 <h1>Sample App Home</h1>
 <p>This is the home page for the <a href="#">Ruby on Rails</a> sample application.</p>
@@ -6,8 +42,51 @@
 <p>Is "racecar" a palindrome? <strong><%= check_if_palindrome('racecar') %></strong></p>
 <p>What would "hello there" be as an array? 
     <ul>
-        <% convert_to_array(test_array).each.with_index do |item, index| %>
+        <% convert_to_array(test_string).each.with_index do |item, index| %>
             <li><%= "#{index + 1}: #{item}" %></li>
         <% end %>
     </ul>
 </p>
+<p>What would that array look like comma separated?
+    <strong><%= test_array.join(', ') %></strong>
+</p>
+<p>The first item in the array is: <strong><%= test_array.first %></strong></p>
+<p>The last item in the array is: <strong><%= test_array[1] %></strong></p>
+<p>The first item in the array is <strong><%= test_array[0].length %></strong> characters long</p>
+<p>The last item in the array is <strong><%= test_array.last.length %></strong> characters long</p>
+<%= content_tag(:p, 'There are only 2 items in the sentence') if test_array.length < 3 %>
+<p>The reversed sentance is: <strong><%= test_array.reverse.join(' ') %></strong></p>
+<p>A random order of the words is: <strong><%= test_array.shuffle.join(' ') %></strong></p>
+<% test_array.reverse! %>
+<p>You can mutate the array directly (let's reverse it). Now it will forever be <strong><%= test_array.join(' ') %></strong></p>
+<p>Let's add the word "why" it with the shovel operator! <%= test_array << 'why' %></p>
+<p>How about a range? <%= (0..10).to_a.join(', ') %>. <em style="color: #777;">Two dots (..) is inclusive, three dots (...) strips off the last number.</em></p>
+<p>Let's grab the first 2 items in the array and print them: <strong><%= test_array[0...2].join(', ') %></strong></p>
+<p>Now lets grab the last 2 items: <strong><%= test_array[1..-1] %></strong></p>
+<p>You can also use ranges for characters, and reverse them! <strong><%= ('a'..'g').to_a.reverse.join(', ') %></strong></p>
+<p>Alphabetical range, starting from the 7th element.<%= ('a'..'z').to_a[7..26] %></p>
+<p>Let's reverse the array and loop through the array twice:
+    <ul>
+        <% test_array.reverse!.length.times do |i| %>
+            <li><%= test_array[i] %></li>
+            <% end %>
+    </ul>
+</p>
+<p>Mapping through arrays are super fun too: <br/>
+    <ul>
+        <% test_array.map do |item| %>
+            <li><%= item %></li>
+        <% end %>
+    </ul>
+</p>
+<p>Hashes are essentially two dimensional arrays. Obi Wan landed with a smirk and proclaimed, "<%= hash_array['Kenobi'] %>". "<%= hash_array['grievous'] %>", Grevious retorted with a scowl.</p>
+<p>Symbols are commonly used in Ruby. You can access it with the colon infront of what ever you want to grab. My name is <strong><%= symbol_array[:name] %></strong> and I am a <strong><%= symbol_array[:occupation] %></strong>.</p>
+<p>My information:
+    <ul>
+        <% another_symbol_hash_array.each do |key, value| %>
+            <li>My <strong><%= key %></strong> is <strong><%= value %></strong></li>
+        <% end %>
+    </ul>
+</p>
+<p><%= nick_names[:child][:first] %> is my child.</p>
+<p>Random  password: <strong><%= (('a'..'m').to_a + ((1..9).to_a) + ['_','.','$']).shuffle[0..10].join %></strong></p>
