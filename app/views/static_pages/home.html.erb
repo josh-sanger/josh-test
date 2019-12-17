@@ -8,7 +8,6 @@
         :name => 'Joshua Sanger',
         :occupation => 'Developer'
     }
-
     another_symbol_hash_array = {
         name: 'Joshua Sanger',
         occupation: 'Developer'
@@ -33,7 +32,8 @@
         child:  people['person3']
     }
 %>
-
+<%= link_to 'Home', static_pages_home_path, class: 'dasdsa' %> 
+<%= link_to 'About', static_pages_about_path, class: 'dasdsa' %>
 <% test_array = test_string.split %>
 <% provide(:subtitle, "Home") %>
 <h1>Sample App Home</h1>
@@ -90,3 +90,5 @@
 </p>
 <p><%= nick_names[:child][:first] %> is my child.</p>
 <p>Random  password: <strong><%= (('a'..'m').to_a + ((1..9).to_a) + ['_','.','$']).shuffle[0..10].join %></strong></p>
+<%= image_tag('https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Bradypus.jpg/1200px-Bradypus.jpg', alt: 'sloth', width: '200', height: 'auto') %>
+<%= render partial: 'layouts/partials/footer' %>
