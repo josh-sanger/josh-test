@@ -64,7 +64,7 @@
 <p>Let's grab the first 2 items in the array and print them: <strong><%= test_array[0...2].join(', ') %></strong></p>
 <p>Now lets grab the last 2 items: <strong><%= test_array[1..-1] %></strong></p>
 <p>You can also use ranges for characters, and reverse them! <strong><%= ('a'..'g').to_a.reverse.join(', ') %></strong></p>
-<p>Alphabetical range, starting from the 7th element.<%= ('a'..'z').to_a[7..26] %></p>
+<p>Alphabetical range, starting from the 7th element <%= ('a'..'z').to_a[7..26] %></p>
 <p>Let's reverse the array and loop through the array twice:
     <ul>
         <% test_array.reverse!.length.times do |i| %>
