@@ -91,4 +91,3 @@
 <p><%= nick_names[:child][:first] %> is my child.</p>
 <p>Random  password: <strong><%= (('a'..'m').to_a + ((1..9).to_a) + ['_','.','$']).shuffle[0..10].join %></strong></p>
 <%= image_tag('https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Bradypus.jpg/1200px-Bradypus.jpg', alt: 'sloth', width: '200', height: 'auto') %>
-<%= render partial: 'layouts/partials/footer' %>

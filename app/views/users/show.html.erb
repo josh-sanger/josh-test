@@ -1,0 +1,10 @@
+<% provide(:subtitle, @user.name) %>
+<h1>Profile Page</h1>
+<div>
+<%= @user.name %>
+    <%= gravatar_for(@user) %>
+    <p>
+        <%= @user.name %><br/>
+        <a href=<%= "mailto:#{@user.email}" %>><%= @user.email %></a>
+    </p>
+</div>

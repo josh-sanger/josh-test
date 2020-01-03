@@ -1,0 +1,49 @@
+<% provide(:subtitle, 'Users') %>
+<div class="flex-wrap between bottom">
+    <h1 class="no-margin">Users</h1>
+    <a href="<%= users_new_path %>" class="button">
+        <i class="fal fa-plus"></i>
+        Add a user
+    </a>
+</div>
+<div class="flex-table" id="users">
+    <div class="head row">
+        <div class="column">#</div>
+        <div class="column">Person</div>
+        <div class="column">Email</div>
+        <div class="column">View</div>
+        <div class="column">Delete</div>
+    </div>
+    <div class="table-body">
+        <% if User.all.count < 1 %>
+            <div class="row no-results">
+                <i class="fal fa-info-circle"></i>
+                There are currently no users. 
+                <%= link_to 'Try adding one', users_new_path %>
+            </div>
+        <% end %>
+        <% User.all.each.with_index do |user, index| %>
+            <div class="row">
+                <div class="column"><%= index  + 1%></div>
+                <div class="column">
+                    <div>
+                        <%= gravatar_for(user) %>
+                        <span><%= user.name %></span>
+                    </div>
+                </div>
+                <div class="column">
+                    <%= '-' unless !user.email.empty? %>
+                    <a href="mailto: <%= user.email %>"><%= user.email %></a>
+                </div>
+                <div class="column">
+                    <a class="view" href="<%= users_path + '/' + user.id.to_s %>">
+                        <i class="fal fa-eye"></i>
+                    </a>
+                </div>
+                <div class="column">
+                    <%= link_to '<i class="fal fa-times"></i>'.html_safe, user, method: :delete, data: {confirm: "Are you sure?"}, class: 'delete' %>
+                </div>
+            </div> <!-- /row -->
+        <% end %>
+    </div> <!-- /table-body -->
+</div> <!-- /flex-table -->

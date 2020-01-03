@@ -1,8 +1,207 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@charset "UTF-8";
+html, 
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+hr,
+input,
+textarea,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+main,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+html, body {
+    height: 100%;
+}
+article {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    > .container {
+        flex-grow: 1;
+        flex-shrink: 0;
+    }
+}
 body {
     font-family: Helvetica, 'sans-serif';
     font-size: 14px;
     line-height: 1.5em;
+}
+.container {
+    max-width: 1250px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+.button {
+    color: white !important;
+    background: cadetblue;
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 4px;
+    text-decoration: none;
+    -webkit-appearance: none;
+    transition: background 0.3s;
+    i {
+        margin-right: 5px;
+    }
+   &:hover {
+       background: darken(cadetblue, 10%);
+   }
+}
+.alert {
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 25px;
+    &-success {
+        background: lighten(seagreen, 55%);
+        color: seagreen;
+    }
+    &-error {
+        background: lighten(indianred, 30%);
+        color: red;
+    }
+}
+footer {
+    color: #777;
+    text-align: center;
+    padding: 15px 0;
+    flex-shrink: 0;
+}
+header {
+    flex-shrink: 0;
+    background: rgb(49, 64, 65);
+    color: white;
+    padding: 10px 20px;
+    width: 100%;
+    margin-bottom: 25px;
+    > nav {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        a {
+            color: white;
+            opacity: 1;
+            transition: opacity 0.3s;
+            text-decoration: none;
+            padding: 5px;
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+        ul {
+            display: flex;
+            list-style: none;
+            li {
+                + li {
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}
+h1 {
+    margin-bottom: 25px;
+    &.no-margin {
+        margin: 0;
+    }
+}
+.flex-wrap {
+    display: flex;
+    width: 100%;
+    &.center {
+        align-items: center;
+    }
+    &.between {
+        justify-content: space-between;
+    }
+    &.bottom {
+        align-items: flex-end;
+    }
 }
